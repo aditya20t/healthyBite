@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
+const order = require('./routes/api/order');
 const auth = require('./routes/api/auth');
 
 const app = express();
@@ -26,7 +26,7 @@ app.get('/', (req, res) => res.send('Hello World'));
 app.use('/api/auth', auth);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+app.use('/api/order', order);
 
 const port = process.env.PORT || 5000;
 
