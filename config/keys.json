@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://healthy:healthy123@cluster0-84e8j.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "healthy-bites"
+}
