@@ -18,7 +18,38 @@ const ProfileSchema = new mongoose.Schema({
     pincode: {
         type: Number,
         required: true
-    }
+    },
+    orders: [
+        {
+            items: [
+                {
+                    productid: {
+                        type: mongoose.Schema.Types.ObjectId,
+                        ref: 'product'
+                    },
+                    name: {
+                        type: String,
+                        required: true
+                    },
+                    quantity: {
+                        type: Number,
+                        default: 0,
+                        required: true
+                    }
+                }
+            ],
+            date: {
+                type: Date,
+                default: Date.now,
+                required: true
+            },
+            status: {
+                type: Boolean,
+                default: false,
+                required: true
+            }
+        }
+    ]
 });
 
 module.exports = Profile = mongoose.model('profile', ProfileSchema);

@@ -23,7 +23,7 @@ router.post('/', auth.admin, async (req, res) => {
          let product = await Product.findOne({name});
          if(product) {
              // Update
-             product = await Product.findOneAndUpdate({name}, {$set: productFields}, {new: true}), {useFindandModify: false};
+             product = await Product.findOneAndUpdate({name}, {$set: productFields}, {new: true}, {useFindandModify: false});
              return res.json(product); 
          }
 
@@ -54,7 +54,7 @@ router.get('/', auth.user, async (req, res) => {
 router.delete('/', auth.admin, async (req, res) => {
     try {
         // Remove product
-        await Product.findOneAndRemove(req.user.name), {useFindandModify: false};
+        await Product.findOneAndRemove(req.user.name, {useFindandModify: false});
 
         res.json({msg: 'Product deleted'});
 
