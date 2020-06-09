@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 // @route   GET api/profile
 // @desc    Tests profile route
 // @access  Private
-router.get('/', auth, async (req, res) => {
+router.get('/', auth.user, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user : req.user.id}).populate('user', ['name', 'phone']);
 
@@ -28,7 +28,7 @@ router.get('/', auth, async (req, res) => {
 // @route   POST api/profile
 // @desc    Create/ update profile
 // @access  Private
-router.post('/', [auth, [
+router.post('/', [auth.user, [
     check('address', 'Address is required').not().isEmpty(),
     check('pincode', 'Pincode is required').isLength({min: 6, max:6 })
 ]], async (req, res) => {
@@ -51,7 +51,7 @@ router.post('/', [auth, [
          let profile = await Profile.findOne({user: req.user.id});
          if(profile) {
              // Update
-             profile = await Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields}, {new: true});
+             profile = await Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields}, {new: true}), {useFindandModify: false};
              return res.json(profile); 
          }
 
@@ -69,12 +69,14 @@ router.post('/', [auth, [
 // @route   DELETE api/profile
 // @desc    Delete profile
 // @access  Private
-router.delete('/', auth, async (req, res) => {
+router.delete('/', auth.user, async (req, res) => {
     try {
         // Remove profile
-        // Remove cart
-        await Profile.findOneAndRemove({ user : req.user.id});
-        res.json(profile);
+        await Profile.findOneAndRemove({ user : req.user.id}), {useFindandModify: false};
+        // Remove user
+        await User.findOneAndRemove({_id: req.user.id}), {useFindandModify: false};
+
+        res.json({msg: 'User deleted'});
 
     } catch (err) {
         console.error(err.message);

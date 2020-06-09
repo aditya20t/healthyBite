@@ -5,6 +5,7 @@ const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const order = require('./routes/api/order');
 const auth = require('./routes/api/auth');
+const product = require('./routes/api/product');
 
 const app = express();
 
@@ -12,7 +13,7 @@ const app = express();
 const db = require('./config/keys.json').mongoURI;
 
 // Connect to MongoDB
-mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, () => {
   console.log("Database Connected");
 });
 
@@ -27,6 +28,7 @@ app.use('/api/auth', auth);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/order', order);
+app.use('/api/product', product);
 
 const port = process.env.PORT || 5000;
 

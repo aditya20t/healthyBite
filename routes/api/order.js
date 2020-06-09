@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 // @route   POST api/order
 // @desc    Order Successfull
 // @access  Private
 
-router.get('/test', (req, res) => res.json({ msg: 'Posts Works' }));
+router.post('/', auth.user, (req, res) => {
+
+});
 
 module.exports = router;
