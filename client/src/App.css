@@ -1,0 +1,41 @@
+  .alert {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+    background: var(--light-color);
+    color: #333;
+  }
+  
+  .alert-primary {
+    background: blue;
+    color: #fff;
+  }
+  
+  .alert-light {
+    background: whitesmoke;
+    color: #333;
+  }
+  
+  .alert-dark {
+    background: black;
+    color: #fff;
+  }
+  
+  .alert-danger {
+    background: red;
+    color: #fff;
+  }
+  
+  .alert-success {
+    background: greenyellow;
+    color: #fff;
+  }
+  
+  .alert-white {
+    background: #fff;
+    color: #333;
+    border: #ccc solid 1px;
+  }
+  
+  
+  

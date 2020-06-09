@@ -16,8 +16,7 @@ router.post('/', auth.user, async (req, res) => {
             res.status(400).json({msg: 'Update your profile'});
         }
         
-        let { items, status } = req.body;
-        let orderFields = {};
+        let { items } = req.body;
         for(let i=0 ; i<items.length ; i++) {
             let item = await Product.findOne({name: items[i].name});
             let Stock = item.stock;

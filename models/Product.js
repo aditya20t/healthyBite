@@ -22,7 +22,8 @@ const ProductSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        required: true
+        required: true,
+        default: "fruit"
     },
     stock: {
         type: Number,
