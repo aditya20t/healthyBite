@@ -28,6 +28,8 @@ app.use('/api/auth', auth);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/order', order);
+
+// Admin Routes
 app.use('/api/product', product);
 
 const port = process.env.PORT || 5000;
