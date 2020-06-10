@@ -41,8 +41,8 @@ router.post('/', auth.admin, async (req, res) => {
 
 // @route   GET api/product
 // @desc    Read all product
-// @access  Private 
-router.get('/', auth.user, async (req, res) => {
+// @access  Public 
+router.get('/', async (req, res) => {
     const products = await Product.find();
     res.json(products);
 });
@@ -54,7 +54,7 @@ router.get('/', auth.user, async (req, res) => {
 router.delete('/', auth.admin, async (req, res) => {
     try {
         // Remove product
-        await Product.findOneAndRemove(req.user.name, {useFindandModify: false});
+        await Product.findOneAndRemove(req.user.name);
 
         res.json({msg: 'Product deleted'});
 

@@ -2,9 +2,9 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {login} from '../../actions/auth';
+import {login, loadUser} from '../../actions/auth';
 
-const Login = ({login, isAuthenticated}) => {
+const Login = ({login, isAuthenticated, loadUser}) => {
 
     const [formData, setFormData] = useState({
         phone: '',
@@ -22,6 +22,7 @@ const Login = ({login, isAuthenticated}) => {
 
     // Redirect if logged in
     if(isAuthenticated) {
+        loadUser();
         return <Redirect to='/' />;
     }
 
@@ -44,6 +45,7 @@ const Login = ({login, isAuthenticated}) => {
 
 Login.prototype = {
     login: PropTypes.func.isRequired,
+    loadUser: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool
 };
 
@@ -51,4 +53,4 @@ const mapStateToProps = state =>({
     isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, {login})(Login);
+export default connect(mapStateToProps, {login, loadUser})(Login);

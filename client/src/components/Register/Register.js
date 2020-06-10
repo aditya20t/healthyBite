@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
-import { register } from '../../actions/auth';
+import { register, loadUser } from '../../actions/auth';
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom';
 
@@ -29,6 +29,7 @@ const Register = (props) => {
     }
 
     if(props.isAuthenticated) {
+        props.loadUser();
         return <Redirect to='/' />
     }
 
@@ -61,6 +62,7 @@ const Register = (props) => {
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
+    loadUser: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool
 }
 
@@ -68,4 +70,4 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, { setAlert, register })(Register);
+export default connect(mapStateToProps, { setAlert, register,loadUser })(Register);
