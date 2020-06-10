@@ -11,16 +11,13 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout}) => {
         <div className={style.items}>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
                     <Link className="nav-link" to="/profile">Profile</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/cart">Cart</Link>
                 </li>
                 <li className="nav-item">
-                    <Link onClick={logout} to= '/'>Logout</Link>
+                    <Link onClick={logout} to= '/'><span>Logout</span></Link>
                 </li>
             </ul>
         </div>
@@ -31,16 +28,13 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout}) => {
     const guestLinks = (
         <div className={style.items}>
             <ul className="navbar-nav">
-            <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/register">Register</Link>
-            </li>
-        </ul>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/register">Register</Link>
+                </li>
+            </ul>
         </div>
         
     );

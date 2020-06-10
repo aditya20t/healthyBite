@@ -31,7 +31,7 @@ router.post('/', auth.user, async (req, res) => {
         }
         if(!executed) {
             await profile.updateOne({$push: {orders: req.body}});
-            res.send({msg: 'Order Successful'});
+            res.send({msg: 'Order Placed Successful'});
         }
         } catch (err) {
             console.error(err.message);

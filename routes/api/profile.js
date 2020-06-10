@@ -18,7 +18,7 @@ router.get('/', auth.user, async (req, res) => {
         }
 
         res.json(profile);
-
+  
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
@@ -51,7 +51,7 @@ router.post('/', [auth.user, [
          let profile = await Profile.findOne({user: req.user.id});
          if(profile) {
              // Update
-             profile = await Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields}, {new: true}, {useFindandModify: false});
+             profile = await Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields}, {new: true}), {useFindandModify: false};
              return res.json(profile); 
          }
 
@@ -72,9 +72,9 @@ router.post('/', [auth.user, [
 router.delete('/', auth.user, async (req, res) => {
     try {
         // Remove profile
-        await Profile.findOneAndRemove({ user : req.user.id}, {useFindAndModify: false});
+        await Profile.findOneAndRemove({ user : req.user.id});
         // Remove user
-        await User.findOneAndRemove({_id: req.user.id}, {useFindAndModify: false});
+        await User.findOneAndRemove({_id: req.user.id});
 
         res.json({msg: 'User deleted'});
 
