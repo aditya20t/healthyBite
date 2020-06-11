@@ -11,28 +11,26 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout}) => {
         <div className={style.items}>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/profile">Profile</Link>
+                    <Link className="nav-link" to="/profile"><i class="fa fa-user"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/cart">Cart</Link>
+                    <Link className="nav-link" to="/cart"><i class="fas fa-shopping-cart"></i> Cart</Link>
                 </li>
                 <li className="nav-item">
-                    <Link onClick={logout} to= '/'><span>Logout</span></Link>
+                    <Link className="nav-link" onClick={logout} to= '/'><i class="fa fa-sign-out-alt"></i> Logout</Link>
                 </li>
             </ul>
         </div>
-        
-
     );
 
     const guestLinks = (
         <div className={style.items}>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link" to="/login"><i class="fa fa-sign-in-alt"></i> Login</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/register">Register</Link>
+                    <Link className="nav-link" to="/register"><i class="fa fa-user-plus"></i> Register</Link>
                 </li>
             </ul>
         </div>
