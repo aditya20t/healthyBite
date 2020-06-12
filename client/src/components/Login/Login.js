@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {login, loadUser} from '../../actions/auth';
+import Styles from './login.module.css';
 
 const Login = ({login, isAuthenticated, loadUser}) => {
 
@@ -27,8 +28,8 @@ const Login = ({login, isAuthenticated, loadUser}) => {
     }
 
     return(
-        <Fragment>
-                <h1>Login to your account</h1>
+        <div className={Styles.page}>
+                <h1 className={Styles.heading}>Login to your account</h1>
                 <form className='form' onSubmit={e => onSubmit(e)}>
                     <div className="form-group">
                         <input type="number" className="form-control" placeholder="Enter phone"  name="phone" value={phone} onChange={e => onChange(e)} size='10' required/>
@@ -39,7 +40,7 @@ const Login = ({login, isAuthenticated, loadUser}) => {
                     </div>
                     <input type="submit" className="btn btn-primary" value="Login" />
                 </form>
-        </Fragment>
+        </div>
     )
 };
 
