@@ -2,35 +2,38 @@ import React, {Fragment} from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import CartDropdown from '../Cart-dropdown/CartDropdown'
 import { logout } from '../../actions/auth';
+import { toggleCartHidden } from '../../actions/cart';
 import  style from './Navbar.module.css';
 
-const Navbar = ({auth: {isAuthenticated , loading}, logout}) => {
+const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hidden}) => {
 
     const authLinks = (
-        <div className={style.items}>
+        <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/profile"><i class="fa fa-user"></i> Profile</Link>
+                    <Link className="nav-link  text-white" to="/profile"><i class="fa fa-user"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/cart"><i class="fas fa-shopping-cart"></i> Cart</Link>
+                    <Link className="nav-link text-white" onClick={toggleCartHidden} ><i class="fas fa-shopping-cart"></i> Cart</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" onClick={logout} to= '/'><i class="fa fa-sign-out-alt"></i> Logout</Link>
+                    <Link className="nav-link text-white" onClick={logout} to= '/'><i class="fa fa-sign-out-alt"></i> Logout</Link>
                 </li>
             </ul>
+            {!hidden ? <CartDropdown /> : null}
         </div>
     );
 
     const guestLinks = (
-        <div className={style.items}>
+        <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/login"><i class="fa fa-sign-in-alt"></i> Login</Link>
+                    <Link className="nav-link text-white" to="/login"><i class="fa fa-sign-in-alt"></i> Login</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/register"><i class="fa fa-user-plus"></i> Register</Link>
+                    <Link className="nav-link text-white" to="/register"><i class="fa fa-user-plus"></i> Register</Link>
                 </li>
             </ul>
         </div>
@@ -39,8 +42,8 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout}) => {
 
     return (
         <nav className="navbar navbar-expand-sm bg-dark">
-            <Link to='/' className='navbar-logo' >Healthy Bite</Link>
-            <div>
+            <Link to='/' className='navbar-logo text-white' >Healthy Bite</Link>
+            <div className='ml-auto'>
             { !loading && (<Fragment >{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
             </div>
         </nav>
@@ -49,11 +52,13 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout}) => {
 
 Navbar.propTypes = {
     logout: PropTypes.func.isRequired,
+    toggleCartHidden: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    hidden: state.cart.hidden
 });
 
-export default connect(mapStateToProps, {logout})(Navbar);
+export default connect(mapStateToProps, {logout, toggleCartHidden })(Navbar);

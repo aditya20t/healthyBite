@@ -6,7 +6,7 @@ import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
-import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 import Alert from './components/Layout/Alert';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-form/CreateProfile';
@@ -41,7 +41,7 @@ const App = () => {
             <PrivateRoute exact path='/profile' component= { Profile } />
             <PrivateRoute exact path='/create-profile' component= { CreateProfile } />
             <PrivateRoute exact path='/edit-profile' component= { EditProfile } />
-            <PrivateRoute exact path='/cart' component= { Cart } />
+            <PrivateRoute exact path='/cart' component= { Checkout } />
           </Switch>
         </section>
       </Fragment>

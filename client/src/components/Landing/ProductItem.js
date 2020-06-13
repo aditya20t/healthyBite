@@ -11,6 +11,6 @@ export default  function({product}) {
             <h5>Name: {product.name}</h5>
             <h6 style={{textDecoration: 'line-through'}}>Market Price: {product.marketPrice}</h6>
             <h6>HB Price: {product.hbPrice}</h6>
-            
+            <p ><i className="fa fa-plus"></i> Add to cart</p>
         </div>
 )};
