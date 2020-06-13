@@ -1,4 +1,4 @@
-.loginpage {
+.registerpage {
     background: url('https://kalyandiocese.com/wp-content/uploads/2015/07/background-learner.jpg');
     background-size: cover;
     height: 93vh;
@@ -11,13 +11,13 @@
     padding: 15px 0px;
 }
 
-.loginform {
+.registerform {
     width: 50%;
     margin: auto;
     text-align: center;
 }
 
-.phoneinfo {
+.info {
     color: yellow;
     font-weight: 500;
     font-size: 15px;
@@ -26,8 +26,7 @@
 
 
 @media only screen and (max-width: 700px) {
-    .loginform {
+    .registerform {
         width: 70%;
     }
 }
-
