@@ -16,9 +16,8 @@
     height: 380;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 button {
