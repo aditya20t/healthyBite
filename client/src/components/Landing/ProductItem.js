@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { addItem } from '../../actions/cart';
 
 const ProductItem =  ({product, addItem}) => {
-    const { id, image, name, marketPrice, hbPrice } = product;
+    const { image, name, marketPrice, hbPrice } = product;
     return (
         <div style={{display: 'inline-block'}}>
             <img 

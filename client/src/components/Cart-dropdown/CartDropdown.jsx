@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import CustomButton from '../CustomButton/CustomButton';
 import styles from './CartDropdown.module.css';
 import CartItem from '../cartItem/CartItem';
-import cart from '../../reducers/cart';
 
 const CartDropdown = ({cartItems}) =>(
     <div className={styles.cartDropdown}>

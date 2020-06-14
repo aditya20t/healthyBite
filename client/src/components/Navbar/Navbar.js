@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CartDropdown from '../Cart-dropdown/CartDropdown'
 import { logout } from '../../actions/auth';
 import { toggleCartHidden } from '../../actions/cart';
-import  style from './Navbar.module.css';
+//import  style from './Navbar.module.css';
 
 const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hidden}) => {
 
@@ -13,13 +13,13 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
         <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link  text-white" to="/profile"><i class="fa fa-user"></i> Profile</Link>
+                    <Link className="nav-link  text-white" to="/profile"><i className="fa fa-user"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" onClick={toggleCartHidden} ><i class="fas fa-shopping-cart"></i> Cart</Link>
+                    <Link className="nav-link text-white" onClick={toggleCartHidden} ><i className="fas fa-shopping-cart"></i> Cart</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" onClick={logout} to= '/'><i class="fa fa-sign-out-alt"></i> Logout</Link>
+                    <Link className="nav-link text-white" onClick={logout} to= '/'><i className="fa fa-sign-out-alt"></i> Logout</Link>
                 </li>
             </ul>
             {!hidden ? <CartDropdown /> : null}
@@ -30,10 +30,10 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
         <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link text-white" to="/login"><i class="fa fa-sign-in-alt"></i> Login</Link>
+                    <Link className="nav-link text-white" to="/login"><i className="fa fa-sign-in-alt"></i> Login</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" to="/register"><i class="fa fa-user-plus"></i> Register</Link>
+                    <Link className="nav-link text-white" to="/register"><i className="fa fa-user-plus"></i> Register</Link>
                 </li>
             </ul>
         </div>
