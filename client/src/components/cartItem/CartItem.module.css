@@ -1,0 +1,21 @@
+.cartItem {
+    width: 100%;
+    display: flex;
+    height: auto;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.image {
+    width: 80px;
+    height: 80px;
+}
+
+.itemDetails {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 20px;
+}
