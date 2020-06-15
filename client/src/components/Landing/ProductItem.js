@@ -12,9 +12,9 @@ const ProductItem =  ({product, addItem}) => {
             alt="new"
             style={{width: '200px', height: '200px'}}
             />
-            <h5>Name: {name}</h5>
-            <h6 style={{textDecoration: 'line-through'}}>Market Price: {marketPrice}</h6>
-            <h6>HB Price: {hbPrice}</h6>
+            <h5>{name}</h5>
+            <h6 style={{textDecoration: 'line-through'}}>Rs.{marketPrice}/kg</h6>
+            <h6>Rs.{hbPrice}/kg</h6>
             <button className="btn btn-dark" onClick={() => addItem(product)}><i className="fa fa-plus"></i> Add to cart</button>
         </div>
 )};
