@@ -1,7 +1,7 @@
 .registerpage {
-    background: url('https://kalyandiocese.com/wp-content/uploads/2015/07/background-learner.jpg');
+    background-image: url('./fruitsbg.jpg');
     background-size: cover;
-    height: 93vh;
+    height: 92vh;
     width: 100%;
     margin: auto;
 }
