@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CartDropdown from '../Cart-dropdown/CartDropdown'
 import { logout } from '../../actions/auth';
+import { selectCartItemsCount } from '../../selectors/cart';
 import { toggleCartHidden } from '../../actions/cart';
-//import  style from './Navbar.module.css';
+import  style from './Navbar.module.css';
 
-const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hidden}) => {
+const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hidden, itemCount}) => {
 
     const authLinks = (
         <div>
@@ -16,7 +17,10 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
                     <Link className="nav-link  " to="/profile"><i className="fa fa-user"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link " onClick={toggleCartHidden} ><i className="fas fa-shopping-cart"></i> Cart</Link>
+                <span>
+                    <Link className="nav-link text-white" onClick={toggleCartHidden} ><i className="fas fa-shopping-cart"></i> Cart</Link>
+                    <span className={style.cartNumber}>{itemCount}</span>
+                </span>    
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link " onClick={logout} to= '/'><i className="fa fa-sign-out-alt"></i> Logout</Link>
@@ -58,7 +62,8 @@ Navbar.propTypes = {
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    hidden: state.cart.hidden
+    hidden: state.cart.hidden,
+    itemCount: selectCartItemsCount(state)
 });
 
 export default connect(mapStateToProps, {logout, toggleCartHidden })(Navbar);

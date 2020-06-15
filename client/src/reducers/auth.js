@@ -27,7 +27,7 @@ export default function(state = initialState, action) {
                 loading: false,
                 user: payload
             };
-            break;
+            
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
             localStorage.setItem('token', payload.token);
@@ -37,7 +37,7 @@ export default function(state = initialState, action) {
                 isAuthenticated: true,
                 loading: false
             };
-            break;
+            
         case REGISTER_FAIL:
         case LOGIN_FAIL:
         case AUTH_ERROR:
@@ -51,9 +51,9 @@ export default function(state = initialState, action) {
                 isAuthenticated: false,
                 loading: false
             };
-            break;
+            
         default:
             return state;
-            break;
+            
     }
 }

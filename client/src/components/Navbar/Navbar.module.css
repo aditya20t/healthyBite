@@ -1,3 +1,17 @@
 .items {
     align-content: center;
 }
+
+.cartNumber {
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    right: 130px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: red;
+    border: 2px solid #666;
+    color: #fff;
+    text-align: center;
+}
