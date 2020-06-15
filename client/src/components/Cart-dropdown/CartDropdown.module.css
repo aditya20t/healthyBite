@@ -14,7 +14,7 @@
 
 .cartItems {
     height: 380;
-  display: flex;
+  display: block;
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
