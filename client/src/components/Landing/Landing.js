@@ -8,7 +8,7 @@ import { getProducts } from '../../actions/products';
 
 
 
-const Landing = ({getProducts, product: {products, loading}, addItem}) => {
+const Landing = ({getProducts, product: {products, loading} }) => {
     useEffect(() => {
         getProducts();
     }, []);
@@ -26,7 +26,7 @@ Landing.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    product: state.product,
+    product: state.product
 })
 
 export default connect(mapStateToProps, { getProducts })(Landing);
