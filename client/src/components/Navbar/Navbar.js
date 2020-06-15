@@ -14,7 +14,7 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
         <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link  text-white" to="/profile"><i className="fa fa-user"></i> Profile</Link>
+                    <Link className="nav-link  " to="/profile"><i className="fa fa-user"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
                 <span>
@@ -23,7 +23,7 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
                 </span>    
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" onClick={logout} to= '/'><i className="fa fa-sign-out-alt"></i> Logout</Link>
+                    <Link className="nav-link " onClick={logout} to= '/'><i className="fa fa-sign-out-alt"></i> Logout</Link>
                 </li>
             </ul>
             {!hidden ? <CartDropdown /> : null}
@@ -34,10 +34,10 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
         <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link text-white" to="/login"><i className="fa fa-sign-in-alt"></i> Login</Link>
+                    <Link className="nav-link " to="/login"><i className="fa fa-sign-in-alt"></i> Login</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" to="/register"><i className="fa fa-user-plus"></i> Register</Link>
+                    <Link className="nav-link " to="/register"><i className="fa fa-user-plus"></i> Register</Link>
                 </li>
             </ul>
         </div>
@@ -45,8 +45,8 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
     );
 
     return (
-        <nav className="navbar navbar-expand-sm bg-dark">
-            <Link to='/' className='navbar-logo text-white' >Healthy Bite</Link>
+        <nav className="navbar navbar-expand-sm bg-light navbar-light">
+            <Link to='/' className='navbar-logo ' >Healthy Bite</Link>
             <div className='ml-auto'>
             { !loading && (<Fragment >{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
             </div>

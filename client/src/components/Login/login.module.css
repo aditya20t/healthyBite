@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+
+.background {
+    background: url('./fruitbg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 92vh;
+    width: 100%;
+    margin: auto;
+}
+
+.loginbox {
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    width: 22rem;
+    padding: 20px;
+    /* height: 70%; */
+    z-index: 2;
+    position: relative;
+    top: 12%;
+    /* border: 1px solid rgba(199, 241, 80, 0.795); */
+    border-radius: 10%;
+    box-shadow: 10px 10px 15px rgba(137, 147, 235, 0.637);
+}
+
+.loginform {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.heading {
+    color: purple;
+    padding: 15px 0px;
+    font-size: 3.3rem;
+    font-family: 'Metal Mania', cursive;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    margin: 20px 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #fcfc;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px grey;
+    font-style: oblique;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.input::placeholder {
+    color: rgba(1, 14, 13, 0.75);
+    opacity: 1;
+    font-weight: 600;
+
+}
+
+.input:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 5px 5px 10px #9ecaed;
+}
+
+.phoneinfo {
+    color: rgba(128, 0, 128, 0.966);
+    font-weight: 500;
+    font-size: 1.08rem;
+    position: relative;
+    top: 4px;
+}
+
+#login {
+    margin: 20px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    font-family: 'Metal Mania', cursive;
+}
+
+#login:hover {
+    color: white;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .loginbox {
+        width: 75%;
+    }
+}
+
