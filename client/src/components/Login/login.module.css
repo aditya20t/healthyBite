@@ -8,7 +8,6 @@
     background-size: cover;
     height: 92vh;
     width: 100%;
-    margin: auto;
 }
 
 .loginbox {
@@ -20,7 +19,7 @@
     z-index: 2;
     position: relative;
     top: 12%;
-    /* border: 1px solid rgba(199, 241, 80, 0.795); */
+    border: 1px solid rgba(199, 241, 80, 0.795);
     border-radius: 10%;
     box-shadow: 10px 10px 15px rgba(137, 147, 235, 0.637);
 }
@@ -75,8 +74,7 @@
     color: rgba(128, 0, 128, 0.966);
     font-weight: 500;
     font-size: 1.08rem;
-    position: relative;
-    top: 4px;
+    top: -4px;
 }
 
 #login {
@@ -84,10 +82,6 @@
     font-weight: 600;
     letter-spacing: 1.7px;
     font-family: 'Metal Mania', cursive;
-}
-
-#login:hover {
-    color: white;
 }
 
 
