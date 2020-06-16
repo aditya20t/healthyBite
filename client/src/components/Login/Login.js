@@ -35,7 +35,7 @@ const Login = ({ login, isAuthenticated, loadUser }) => {
                     <h1 className={Styles.heading}>Sign In</h1>
                     <form className='form' onSubmit={e => onSubmit(e)}>
                         <div className="form-group">
-                            <input className={Styles.input} placeholder="Enter phone" onFocus={numberdisp} name="phone" autoComplete="off" value={phone} onChange={e => onChange(e)} size='10' required />
+                            <input className={Styles.input} placeholder="Enter phone" onFocus={numberDisplay} name="phone" autoComplete="off" value={phone} onChange={e => onChange(e)} size='10' required />
                             <small className='form-text' className={Styles.phoneinfo} id="phone"></small>
                         </div>
                         <div className="form-group">
@@ -48,7 +48,7 @@ const Login = ({ login, isAuthenticated, loadUser }) => {
         </section>
     )
 
-    function numberdisp() {
+    function numberDisplay() {
         let txt = document.getElementById('phone');
         txt.innerHTML = "Number Should be without +91";
     }
