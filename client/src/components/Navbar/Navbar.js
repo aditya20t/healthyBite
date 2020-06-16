@@ -18,7 +18,7 @@ const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hi
                 </li>
                 <li className="nav-item">
                 <span>
-                    <Link className="nav-link " onClick={toggleCartHidden} ><i className="fas fa-shopping-cart"></i> Cart</Link>
+                    <Link className="nav-link" onClick={toggleCartHidden} ><i className="fas fa-shopping-cart"></i> Cart</Link>
                     <span className={style.cartNumber}>{itemCount}</span>
                 </span>    
                 </li>
