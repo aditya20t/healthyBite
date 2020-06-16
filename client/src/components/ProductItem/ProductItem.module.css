@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap');
+
+.product { 
+    display: inline-block;
+    border-style: solid hidden hidden solid;
+    border-width: 0.1px;
+    box-shadow: blue;
+    border-radius: 10%;
+    text-align: center;
+    margin: 20px;
+    box-shadow: 10px 10px 5px #f4f4f4;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    padding: 4px;
+    background: linear-gradient(to right, #e0dede, #f4f6ff);
+    border-radius: 10%;
+    border-style: hidden hidden solid hidden;
+    transition: transform .4s
+}
+
+.image:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 5px #f8e1f4;
+    border: hidden;
+}
+
+.productName {
+    font-family: 'Raleway', sans-serif;
+    padding: 2px;
+    color: #f4f4f4;
+    font-size: 1.6em;
+    letter-spacing: 1.5px;
+    text-shadow: -1px 0 #10375c, 0 1px #10375c, 1px 0 #10375c, 0 -1px #10375c;
+    font-weight: 500;
+}
+
+.marketPrice, .hbPrice {
+    display: inline-block;
+    padding: 8px;
+}
+
+.marketPrice {
+    text-decoration: line-through;
+}
+
+.button {
+    padding: 2px;
+}
+
+.button:hover {
+    opacity: 0.7;
+}
