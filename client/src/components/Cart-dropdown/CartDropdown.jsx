@@ -8,7 +8,11 @@ import { selectCartItems } from '../../selectors/cart';
 const CartDropdown = ({cartItems}) =>(
     <div className={styles.cartDropdown}>
         <div className={styles.cartItems}>
-            {cartItems.map(cartItem => <CartItem key={cartItem._id} item={cartItem} />)}
+            {
+                cartItems.length ? 
+                cartItems.map(cartItem => <CartItem key={cartItem._id} item={cartItem} />) : 
+                <div className={styles.empty}><span >No cart items</span></div>
+                }
         </div>
         <CustomButton className={styles.button}>CHECKOUT</CustomButton>
     </div>
