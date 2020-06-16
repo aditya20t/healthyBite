@@ -3,7 +3,6 @@ import styles from './CheckoutItem.module.css';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { clearItemFromCart, addItem, removeItem } from '../../actions/cart';
-import cartItem from '../cartItem/CartItem';
 
 const CheckoutItem = ({cartItems, clearItemFromCart, addItem, removeItem }) => {
     const { name, image, hbPrice, quantity} = cartItems;
@@ -18,7 +17,7 @@ const CheckoutItem = ({cartItems, clearItemFromCart, addItem, removeItem }) => {
         <span className={styles.value}>{quantity}</span>
         <div className={styles.arrow} onClick={() => addItem(cartItems)}>&#10095;</div>
         </span>
-        <span className={styles.price}>{hbPrice}</span>
+        <span className={styles.price}>Rs.{hbPrice}/kg</span>
         <div className={styles.removeButton} onClick={() => clearItemFromCart(cartItems)}>&#10005;</div>
     </div>
 )};

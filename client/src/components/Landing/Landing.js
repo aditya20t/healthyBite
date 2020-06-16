@@ -2,8 +2,8 @@ import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
-import ProductItem from './ProductItem';
-import styles from './Landing.module.css';
+import ProductItem from '../ProductItem/ProductItem';
+// import styles from './Landing.module.css';
 import { getProducts } from '../../actions/products';
 
 
