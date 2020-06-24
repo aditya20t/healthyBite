@@ -11,7 +11,7 @@ import Alert from './components/Layout/Alert';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
-import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
