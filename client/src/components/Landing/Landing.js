@@ -12,7 +12,7 @@ const Landing = ({getProducts, product: {products, loading} }) => {
     useEffect(() => {
         getProducts();
     }, []);
-    console.log(products);
+    
     return loading ? <div><Spinner /></div>: <Fragment>
             {products.length>0 ? (products.map(product => (
                 <ProductItem key={product._id} product = {product} />

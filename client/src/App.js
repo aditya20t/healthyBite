@@ -11,6 +11,7 @@ import Alert from './components/Layout/Alert';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -42,6 +43,7 @@ const App = () => {
             <PrivateRoute exact path='/create-profile' component= { CreateProfile } />
             <PrivateRoute exact path='/edit-profile' component= { EditProfile } />
             <PrivateRoute exact path='/checkout' component= { Checkout } />
+            <PrivateRoute exact path='/admin/dashboard' component ={ AdminDashboard } />
           </Switch>
         </section>
       </Fragment>

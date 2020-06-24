@@ -25,6 +25,7 @@ const Profile = ({ getProfile, auth: {user}, profile: { profile, loading }, dele
             <button className="btn btn-danger" onClick = {() => deleteAccount()}>
                 <i className="fas fa-user-minus"></i> Delete my account
             </button>
+            {user.is_admin ? <Link to='/admin/dashboard' className='btn btn-outline-primary' >Admin dashboard</Link> : null}
         </div>
         </Fragment> : <Fragment>
             <p>You have not yet setup your profile.</p>
