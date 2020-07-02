@@ -1,4 +1,4 @@
-import { PRODUCT_ERROR, GET_PRODUCTS } from '../actions/types';
+import { PRODUCT_ERROR, GET_PRODUCTS, ADD_PRODUCT, REMOVE_PRODUCT } from '../actions/types';
 
 const initialState = {
     products: null,
@@ -16,7 +16,13 @@ export default function(state = initialState, action) {
                 products: payload,
                 loading: false
             };
-            break;
+        
+        case ADD_PRODUCT:
+            return {
+                ...state,
+                product: payload,
+                loading: false
+            }
         
         case PRODUCT_ERROR:
             return {
@@ -24,10 +30,8 @@ export default function(state = initialState, action) {
                 error: payload,
                 loading: false
             }
-            break;
         
         default:
             return state;
-            break;
     }
 }

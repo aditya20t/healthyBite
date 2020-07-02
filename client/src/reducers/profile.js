@@ -16,23 +16,19 @@ export default function(state= initilState, action) {
                 profile: payload,
                 loading:false
             };
-            break;
         case PROFILE_ERROR: 
             return{
                 ...state,
                 error: payload,
                 loading: false
             };
-            break;
         case CLEAR_PROFILE:
             return{
                 ...state,
                 profile: null,
                 loading: false
             };
-            break;
         default:
             return state;
-            break;
     }
 }

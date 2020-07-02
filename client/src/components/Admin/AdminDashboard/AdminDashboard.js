@@ -5,6 +5,7 @@ import styles from './AdminDashboard.module.css';
 import { getProducts } from '../../../actions/products';
 import Items from '../Items/Items';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 
 
 const AdminDashboard = ({getProducts, product: {products, loading}}) => {
@@ -33,7 +34,10 @@ const AdminDashboard = ({getProducts, product: {products, loading}}) => {
         )))}
         </tbody>
         </table>
-    </div> : <p>No products</p> } </Fragment>
+    </div> : <p>No products</p> } 
+    <Link className='btn btn-outline-success' to='/admin/createproduct'>Add Product</Link>
+    </Fragment>
+
 };
 
 AdminDashboard.propTypes = {
