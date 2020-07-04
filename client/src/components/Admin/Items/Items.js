@@ -1,22 +1,22 @@
 import React, { PureComponent, Fragment } from 'react'
-import {deleteProduct} from '../../../actions/products';
+import {deleteProduct, getItem } from '../../../actions/products';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types'
 import styles from './Items.module.css';
-import product from '../../../reducers/product';
+import { Link } from 'react-router-dom';
 
-const Items = ({deleteProduct ,product}) => {
+const Items = ({deleteProduct ,product, getItem}) => {
     const  {name, image, marketPrice, hbPrice, stock } = product;
     return(
             <Fragment>
-                <tr>
+                <tr style={{textAlign: 'center'}}>
                 <td><img src={image} className={styles.image}/></td>
                 <td>{name}</td>
                 <td>{marketPrice}</td>
                 <td>{hbPrice}</td>
                 <td>{stock}</td>
-                <td><i className='fa fa-pencil-alt' /></td>
-                <td><div onClick={() => deleteProduct(product)}><i className="fa fa-times"></i></div></td>
+                <td><Link to='/admin/editProduct' onClick={() => getItem(product)}><i className="fa fa-pencil-alt"></i></Link></td>
+                <td><div onClick={() => deleteProduct(product)} style={{cursor: 'pointer', color: 'red'}}><i className="fa fa-times"></i></div></td>
                 </tr>
             </Fragment>
            
@@ -24,7 +24,8 @@ const Items = ({deleteProduct ,product}) => {
 };
 
 Items.propTypes = {
-    deleteProduct: PropTypes.func.isRequired
+    deleteProduct: PropTypes.func.isRequired,
+    getItem: PropTypes.func.isRequired
 }
 
-export default connect(null, {deleteProduct})(Items);
+export default connect(null, {deleteProduct, getItem})(Items);

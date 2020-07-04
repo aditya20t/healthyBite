@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, PRODUCT_ERROR, ADD_PRODUCT, REMOVE_PRODUCT } from './types';
+import { GET_PRODUCTS, PRODUCT_ERROR, ADD_PRODUCT, REMOVE_PRODUCT, GET_ITEM } from './types';
 import { setAlert } from './alert';
 import axios from 'axios';
 
@@ -82,3 +82,11 @@ export const deleteProduct = (product) => async dispatch => {
         }
     }
 };
+
+// Get Item
+export const getItem = item => dispatch => {
+    dispatch ({
+        type: GET_ITEM,
+        payload: item
+    })
+}

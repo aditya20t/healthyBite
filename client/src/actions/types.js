@@ -19,3 +19,4 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const CLEAR_ITEM_FROM_CART = 'CLEAR_ITEM_FROM_CART';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+export const GET_ITEM = 'GET_ITEM';

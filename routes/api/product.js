@@ -23,7 +23,7 @@ router.post('/', auth.admin, async (req, res) => {
          let product = await Product.findOne({name});
          if(product) {
              // Update
-             product = await Product.findOneAndUpdate({name}, {$set: productFields}, {new: true}, {useFindandModify: false});
+             product = await Product.findOneAndUpdate({name}, {$set: productFields}, {new: true});
              return res.json(product); 
          }
 
