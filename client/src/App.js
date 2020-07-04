@@ -11,6 +11,9 @@ import Alert from './components/Layout/Alert';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
+import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
+import CreateProduct from './components/Admin/productForm/CreateProduct';
+import EditProduct from './components/Admin/productForm/EditProduct';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -42,6 +45,9 @@ const App = () => {
             <PrivateRoute exact path='/create-profile' component= { CreateProfile } />
             <PrivateRoute exact path='/edit-profile' component= { EditProfile } />
             <PrivateRoute exact path='/checkout' component= { Checkout } />
+            <PrivateRoute exact path='/admin/dashboard' component ={ AdminDashboard } />
+            <PrivateRoute exact path='/admin/createproduct' component={ CreateProduct } />
+            <PrivateRoute exact path='/admin/editProduct' component={ EditProduct } />
           </Switch>
         </section>
       </Fragment>

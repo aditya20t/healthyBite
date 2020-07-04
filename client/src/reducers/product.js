@@ -1,5 +1,4 @@
-import { PRODUCT_ERROR, GET_PRODUCTS } from '../actions/types';
-
+import { PRODUCT_ERROR, GET_PRODUCTS, ADD_PRODUCT, REMOVE_PRODUCT, GET_ITEM } from '../actions/types';
 const initialState = {
     products: null,
     loading: true,
@@ -16,7 +15,25 @@ export default function(state = initialState, action) {
                 products: payload,
                 loading: false
             };
-            break;
+        
+        case ADD_PRODUCT:
+            return {
+                ...state,
+                product: payload,
+                loading: false
+            }
+        case GET_ITEM:
+            return{
+                ...state,
+                item: payload,
+                loading: false
+            }
+        case REMOVE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter(product => product._id !== action.payload._id),
+                loading: false
+            }
         
         case PRODUCT_ERROR:
             return {
@@ -24,10 +41,8 @@ export default function(state = initialState, action) {
                 error: payload,
                 loading: false
             }
-            break;
         
         default:
             return state;
-            break;
     }
 }

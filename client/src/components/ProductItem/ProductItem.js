@@ -8,11 +8,13 @@ const ProductItem =  ({product, addItem, isAuthenticated}) => {
     const { image, name, marketPrice, hbPrice } = product;
     return (
         <div className={styles.product}>
+        <div className={styles.imageContainer}>
             <img 
-            src= {image}
-            alt="new"
-            className={styles.image}
-            />
+                src= {image}
+                alt="new"
+                className={styles.image}
+                />
+        </div>
             <h5 className={styles.productName}>{name}</h5>
             <div className={styles.price}>
                 <h6 className={styles.marketPrice}>Rs.{marketPrice}/kg</h6>
