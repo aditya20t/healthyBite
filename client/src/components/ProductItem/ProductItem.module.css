@@ -1,37 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap');
 
-.product { 
+.product {
     display: inline-block;
-    border-style: solid;
-    border-width: 0.1px;
-    box-shadow: blue;
-    border-radius: 10%;
-    border-color: #1b6ca8;
     text-align: center;
     margin: 20px;
-    box-shadow: 10px 10px 5px #f4f4f4;
+    height: fit-content;
+    width: auto;
 }
 
-.imageContainer {
-    background-color: #ddf3f5;
-    border-radius: 14%;
+.card {
+    position: relative;
+    border-width: 1px;
+    width: 280px;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .image {
-    width: 200px;
+    width: 230px;
     background-color: white;
-    height: 200px;
-    margin: 10px;
-    padding: 10px;
+    height: 230px;
     border-radius: 80%;
-    border-style: hidden hidden solid hidden;
     transition: transform .4s;
+    border-style: ridge;
 }
 
-.image:hover {
-    transform: scale(1.05);
-    box-shadow: 10px 10px 5px #a6dcef;
-    border: hidden;
+.details {
+    top: 0;
+    position: relative;
+    height: 180px;
 }
 
 .productName {
@@ -58,4 +55,10 @@
 
 .button:hover {
     opacity: 0.7;
+}
+
+@media(max-width: 486px) {
+    .product {
+        margin-left: 11%;
+    }
 }
