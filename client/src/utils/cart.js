@@ -1,5 +1,3 @@
-import cart from "../reducers/cart";
-
 export const addItemsToCart = (cartItems, cartItemsToAdd) => {
     const existingCartItem = cartItems.find(cartItem => cartItem._id === cartItemsToAdd._id);
 

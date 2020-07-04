@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const order = require('./routes/api/order');
@@ -8,7 +7,6 @@ const auth = require('./routes/api/auth');
 const product = require('./routes/api/product');
 
 const app = express();
-
 // DB Config
 const db = require('./config/keys.json').mongoURI;
 

@@ -1,9 +1,12 @@
 import React, { PureComponent, Fragment } from 'react'
+import {deleteProduct} from '../../../actions/products';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types'
 import styles from './Items.module.css';
-import classnames  from 'classnames';
+import product from '../../../reducers/product';
 
-const Items = ({product: {name, image, marketPrice, hbPrice, stock }}) => {
+const Items = ({deleteProduct ,product}) => {
+    const  {name, image, marketPrice, hbPrice, stock } = product;
     return(
             <Fragment>
                 <tr>
@@ -13,12 +16,15 @@ const Items = ({product: {name, image, marketPrice, hbPrice, stock }}) => {
                 <td>{hbPrice}</td>
                 <td>{stock}</td>
                 <td><i className='fa fa-pencil-alt' /></td>
-                <td>X</td>
+                <td><div onClick={() => deleteProduct(product)}><i className="fa fa-times"></i></div></td>
                 </tr>
             </Fragment>
            
     )
 };
 
+Items.propTypes = {
+    deleteProduct: PropTypes.func.isRequired
+}
 
-export default Items;
+export default connect(null, {deleteProduct})(Items);

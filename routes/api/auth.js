@@ -31,7 +31,6 @@ router.post('/', [
     if(!error.isEmpty()) {
         return res.status(400).json({errors: error.array()});
     } 
-
     const { phone, password } = req.body;
 
     try {

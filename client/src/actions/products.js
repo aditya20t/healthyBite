@@ -55,19 +55,30 @@ export const createProduct = (formData, history, edit = false) => async dispatch
 };
 
 // Delete product
-// export const deleteAccount = () => async dispatch => {
-//     if(window.confirm('Are you sure? This can NOT be undone!')) {
-//         try {
-//             await axios.delete('/api/profile');
+export const deleteProduct = (product) => async dispatch => {
+    if(window.confirm('Are you sure? This can NOT be undone!')) {
+        try {
+            const body = JSON.stringify({product});
+            await axios.delete('/api/product',{
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    body
+                }
+            });
 
-//             dispatch({ type: CLEAR_PROFILE });
-//             dispatch({ type: ACCOUNT_DELETED });
-//             dispatch(setAlert('Account Deleted'));
-//         } catch (err) {
-//             dispatch({
-//                 type: PROFILE_ERROR,
-//                 payload: { msg: err.response.statusText , status: err.response.status }
-//             });
-//         }
-//     }
-// };
+            dispatch({ 
+                type: REMOVE_PRODUCT,
+                payload: product
+            });
+            dispatch(getProducts);
+            dispatch(setAlert('Product Deleted', 'danger'));
+        } catch (err) {
+            dispatch({
+                type: PRODUCT_ERROR,
+                payload: { msg: err.response.statusText, status: err.response.status }
+            });
+        }
+    }
+};

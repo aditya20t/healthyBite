@@ -16,7 +16,7 @@ const AdminDashboard = ({getProducts, product: {products, loading}}) => {
     return loading ? <p>Loading...</p> : <Fragment>
     {products.length>0 ? <div className= {cx('container')}>
         <h4>Products</h4>
-        <table class="table table-bordered">
+        <table className="table table-bordered">
         <thead>
         <tr>
             <th>Image</th>
@@ -42,7 +42,7 @@ const AdminDashboard = ({getProducts, product: {products, loading}}) => {
 
 AdminDashboard.propTypes = {
     getProducts: PropTypes.func.isRequired,
-    product : PropTypes.bool.isRequired
+    product : PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
