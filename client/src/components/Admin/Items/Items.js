@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {deleteProduct, getItem } from '../../../actions/products';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types'
