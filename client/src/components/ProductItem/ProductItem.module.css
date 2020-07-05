@@ -47,6 +47,11 @@
 
 .marketPrice {
     text-decoration: line-through;
+    color: rgb(255, 0, 0);
+}
+
+.hbPrice {
+    color: rgb(4, 119, 0);
 }
 
 .button {

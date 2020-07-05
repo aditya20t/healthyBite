@@ -9,7 +9,8 @@ import { toggleCartHidden } from '../../actions/cart';
 import  style from './Navbar.module.css';
 
 const Navbar = ({auth: {isAuthenticated , loading}, logout, toggleCartHidden, hidden, itemCount}) => {
-
+    let items = JSON.parse(window.localStorage.getItem('items'));
+    itemCount = items ? items.length : 0;
     const authLinks = (
         <div>
             <ul className="navbar-nav">
