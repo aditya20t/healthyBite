@@ -3,7 +3,7 @@ import {addItemsToCart, removeItemFromCart} from '../utils/cart';
 import cartItem from '../components/cartItem/CartItem';
 const initialState = {
     hidden: true,
-    cartItems: []
+    cartItems: JSON.parse(localStorage.getItem('items')) || []
 }
 
 export default function(state=initialState, action) {
