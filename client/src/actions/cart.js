@@ -7,15 +7,15 @@ export const toggleCartHidden = () => dispatch => {
 };
 
 export const addItem = (item) => dispatch => {
-    item.quantity = 0;
+    item.quantity = 1;
     let items = [];
     if(localStorage.getItem('items')){
         items = JSON.parse(localStorage.getItem('items'));
     }
     var index = items.findIndex(x => x.name === item.name);
 
-    if(index === -1) {
-        items.push({'_id': item._id ,'image': item.image, 'name': item.name, 'quantity': item.quantity+1, 'hbPrice': item.hbPrice});
+    if(!items[index]) {
+        items.push({'_id': item._id ,'image': item.image, 'name': item.name, 'quantity': item.quantity, 'hbPrice': item.hbPrice});
     } else {
         items[index].quantity += 1;
     }
@@ -33,10 +33,10 @@ export const removeItem = item => dispatch => {
         items = JSON.parse(localStorage.getItem('items'));
     }
     var index = items.findIndex(x => x.name === item.name);
-
-    if(items[index].quantity !== 0 && items[index] > 0) {
+    console.log(items[index].quantity);
+    if(items[index].quantity > 1) {
         items[index].quantity -= 1;
-    } else{
+    } else  if(items[index].quantity === 1) {
         items.splice(index, 1);
     }
     localStorage.setItem('items', JSON.stringify(items));
@@ -47,7 +47,15 @@ export const removeItem = item => dispatch => {
     });
 }
 
-export const clearItemFromCart = (item) => dispatch => {
+export const clearItemFromCart = (item) => dispatch => {let items = [];
+    if(localStorage.getItem('items')){
+        items = JSON.parse(localStorage.getItem('items'));
+    }
+    var index = items.findIndex(x => x.name === item.name);
+    console.log(items[index].quantity);
+    if(index) {
+        items.splice(index, 1);
+    }
     dispatch({
         type: CLEAR_ITEM_FROM_CART,
         payload: item
