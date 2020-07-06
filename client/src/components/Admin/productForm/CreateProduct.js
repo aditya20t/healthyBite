@@ -22,7 +22,7 @@ const CreateProduct = ({ createProduct, history }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h1>Add a product</h1>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
