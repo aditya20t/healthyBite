@@ -32,7 +32,7 @@ const EditProduct = ({createProduct, history, item, loading }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h1>Edit a product</h1>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">

@@ -13,7 +13,7 @@ const AdminDashboard = ({getProducts, product: {products, loading}}) => {
         getProducts();
     }, []);
 
-    return loading ? <p>Loading...</p> : <Fragment>
+    return loading ? <p>Loading...</p> : <div className='container'>
     {products.length>0 ? <div className= {cx('container')}>
         <h4>Products</h4>
         <table className="table table-bordered">
@@ -36,7 +36,7 @@ const AdminDashboard = ({getProducts, product: {products, loading}}) => {
         </table>
     </div> : <p>No products</p> } 
     <Link className='btn btn-outline-success' to='/admin/createproduct'>Add Product</Link>
-    </Fragment>
+    </div>
 
 };
 
