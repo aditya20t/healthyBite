@@ -5,7 +5,7 @@ const Profile = require('../../models/Profile');
 const Product = require('../../models/Product');
 
 // @route   POST api/order
-// @desc    Order Successfull
+// @desc    Order Successful
 // @access  Private
 
 router.post('/', auth.user, async (req, res) => {

@@ -6,6 +6,9 @@ import { selectCartItems, selectCartTotal } from '../../selectors/cart';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 
 const Cart = ({cartItems, total}) => {
+    let items = JSON.parse(window.localStorage.getItem('items'));
+    cartItems = items || [];
+
     return(
         <div className={styles.checkoutPage}>
             <div className={styles.checkoutHeader} >
