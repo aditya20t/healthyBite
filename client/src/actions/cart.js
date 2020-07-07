@@ -33,7 +33,6 @@ export const removeItem = item => dispatch => {
         items = JSON.parse(localStorage.getItem('items'));
     }
     var index = items.findIndex(x => x.name === item.name);
-    console.log(items[index].quantity);
     if(items[index].quantity > 1) {
         items[index].quantity -= 1;
     } else  if(items[index].quantity === 1) {
@@ -47,15 +46,15 @@ export const removeItem = item => dispatch => {
     });
 }
 
-export const clearItemFromCart = (item) => dispatch => {let items = [];
-    if(localStorage.getItem('items')){
+export const clearItemFromCart = (item) => dispatch => {
+    let items = [];
+    if(localStorage.getItem('items')){  
         items = JSON.parse(localStorage.getItem('items'));
     }
     var index = items.findIndex(x => x.name === item.name);
-    console.log(items[index].quantity);
-    if(index) {
-        items.splice(index, 1);
-    }
+    console.log(items[index]);
+    items.splice(index, 1);
+    localStorage.setItem('items', JSON.stringify(items));
     dispatch({
         type: CLEAR_ITEM_FROM_CART,
         payload: item
