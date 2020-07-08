@@ -24,7 +24,7 @@ const CheckoutItem = ({cartItems, clearItemFromCart, addItem, removeItem }) => {
 
 
 CheckoutItem.propTypes = {
-    clearItemFromCart: PropTypes.bool.isRequired,
+    clearItemFromCart: PropTypes.func.isRequired,
     addItem: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired
 }

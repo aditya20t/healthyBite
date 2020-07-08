@@ -4,10 +4,72 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../selectors/cart';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
+import axios from 'axios';
+
+function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
+
+const __DEV__ = document.domain === 'localhost'
 
 const Cart = ({cartItems, total}) => {
     let items = JSON.parse(window.localStorage.getItem('items'));
     cartItems = items || [];
+
+    async function displayRazorpay() {
+		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+		if (!res) {
+			alert('Razorpay SDK failed to load. Are you online?')
+			return
+        }
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const body = {
+            total: total
+        }
+        const data = await axios.post('/api/razorpay', body, config);
+		const {amount, id, currency} = data.data;
+
+		const options = {
+			key: __DEV__ ? 'rzp_test_mgd2E9MT8P6IRT' : 'PRODUCTION_KEY',
+			currency: currency,
+			amount: amount,
+			order_id: id,
+			name: 'Pay Online',
+            description: 'Thanks for shopping with us!',
+            image: 'http://localhost:3000/static/media/logo1.4a166e5e.jpeg',
+			handler: function (response) {
+				alert(response.razorpay_payment_id)
+				alert(response.razorpay_order_id)
+				alert(response.razorpay_signature)
+			},
+			prefill: {
+				email: 'sdfdsjfh2@ndsfdf.com',
+				phone_number: '9899999999'
+			},
+            theme: {
+                "color": "#b6eb7a"
+            }
+		}
+		const paymentObject = new window.Razorpay(options)
+		paymentObject.open()
+	}
+
 
     return(
         <div className={styles.checkoutPage}>
@@ -34,6 +96,10 @@ const Cart = ({cartItems, total}) => {
                 ))
             }
             <div className={styles.total} ><span>TOTAL: Rs.{total}</span></div>
+            <div>
+            <button className='btn btn-lg btn-outline-success' onClick={displayRazorpay}>Pay Online</button>
+            <button className='btn btn-lg btn-outline-secondary'>Cash on delievery</button>
+            </div>
         </div>
     )
 };
