@@ -44,7 +44,7 @@ module.exports = {
                 res.status(500).json({msg: 'Authorization denied'});
             }
         } catch (err) {
-            res.status(401).json({msg: 'Authorization Denied here'});
+            res.status(401).json({msg: 'Authorization Denied '});
         }
     }
 }
