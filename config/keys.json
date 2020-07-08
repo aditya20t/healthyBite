@@ -1,6 +1,4 @@
 {
   "mongoURI": "mongodb+srv://healthy:healthy123@cluster0-84e8j.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "jwtSecret": "healthy-bites",
-  "razorpay_keyID": "rzp_test_mgd2E9MT8P6IRT",
-  "razorpay_keySecret": "bYXUQSdlrnSNNhDBFRkqCIib"
+  "jwtSecret": "healthy-bites"
 }
