@@ -1,0 +1,25 @@
+.cardcontainer {
+    width: fit-content;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+html body #root section, .window{
+    height: 100%;
+    width: 100%;
+}
+
+.description {
+    margin: auto;
+}
+
+.description ul, p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(20, 73, 25);
+}
+
+.description ul {
+    text-align: left;
+}

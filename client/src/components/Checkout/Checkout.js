@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../selectors/cart';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom';
 
 function loadScript(src) {
 	return new Promise((resolve) => {
@@ -40,11 +41,11 @@ const Cart = ({cartItems, total}) => {
         }
 
         const body = {
-            total: total
+            total
         }
         const data = await axios.post('/api/razorpay', body, config);
 		const {amount, id, currency} = data.data;
-
+        let href = '';
 		const options = {
 			key: __DEV__ ? 'rzp_test_mgd2E9MT8P6IRT' : 'PRODUCTION_KEY',
 			currency: currency,
@@ -52,11 +53,16 @@ const Cart = ({cartItems, total}) => {
 			order_id: id,
 			name: 'Pay Online',
             description: 'Thanks for shopping with us!',
-            image: 'http://localhost:3000/static/media/logo1.4a166e5e.jpeg',
+            image: '/static/media/logo1.4a166e5e.jpeg',
 			handler: function (response) {
-				alert(response.razorpay_payment_id)
-				alert(response.razorpay_order_id)
-				alert(response.razorpay_signature)
+                // alert(response.razorpay_payment_id);
+                var redirect_url;
+                if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+                    redirect_url = '/payment/fail';
+                } else {
+                    redirect_url = `/payment/success?p_id=${response.razorpay_payment_id}&o_id=${response.razorpay_order_id}&sign=${response.razorpay_signature}`;
+                }
+                window.location.href = redirect_url;
 			},
 			prefill: {
 				email: 'sdfdsjfh2@ndsfdf.com',
