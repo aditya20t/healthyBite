@@ -52,7 +52,6 @@ export const clearItemFromCart = (item) => dispatch => {
         items = JSON.parse(localStorage.getItem('items'));
     }
     var index = items.findIndex(x => x.name === item.name);
-    console.log(items[index]);
     items.splice(index, 1);
     localStorage.setItem('items', JSON.stringify(items));
     dispatch({

@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { login, loadUser } from '../../actions/auth';
 import Styles from './login.module.css';
-import { $CombinedState } from 'redux';
 
 const Login = ({ login, isAuthenticated, loadUser }) => {
 
