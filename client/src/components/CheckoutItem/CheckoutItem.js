@@ -17,7 +17,7 @@ const CheckoutItem = ({cartItems, clearItemFromCart, addItem, removeItem }) => {
         <span className={styles.value}>{quantity}</span>
         <div className={styles.arrow} onClick={() => addItem(cartItems)}>&#10095;</div>
         </span>
-        <span className={styles.price}>Rs.{hbPrice}/kg</span>
+        <span className={styles.price}>₹{hbPrice}/kg</span>
         <div className={styles.removeButton} onClick={() => clearItemFromCart(cartItems)}>&#10005;</div>
     </div>
 )};
