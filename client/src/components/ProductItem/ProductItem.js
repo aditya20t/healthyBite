@@ -13,8 +13,8 @@ const ProductItem = ({ product, addItem, isAuthenticated }) => {
         <div className={styles.details}>
           <h5 className={styles.productName}>{name}</h5>
           <div className={styles.price}>
-            <h6 className={styles.marketPrice}>Rs.{marketPrice}/kg</h6>
-            <h6 className={styles.hbPrice}>Rs.{hbPrice}/kg</h6>
+            <h6 className={styles.marketPrice}>₹{marketPrice}/kg</h6>
+            <h6 className={styles.hbPrice}>₹{hbPrice}/kg</h6>
           </div>
           <div className={styles.button}>
             {isAuthenticated ? (
