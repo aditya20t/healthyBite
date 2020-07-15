@@ -16,7 +16,7 @@ router.post('/', auth.user, async (req, res) => {
             res.status(400).json({msg: 'Update your profile'});
         }
         
-        let { items } = req.body;
+        let { items, order_id, mode } = req.body;
         for(let i=0 ; i<items.length ; i++) {
             let item = await Product.findOne({name: items[i].name});
             let Stock = item.stock;
@@ -29,8 +29,9 @@ router.post('/', auth.user, async (req, res) => {
                 break;
             }
         }
+        let status = true;
         if(!executed) {
-            await profile.updateOne({$push: {orders: req.body}});
+            await profile.updateOne({$push: {orders: {items, order_id, mode, status}}});
             res.send({msg: 'Order Placed Successful'});
         }
         } catch (err) {

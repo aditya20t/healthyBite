@@ -44,4 +44,4 @@ const AdminOrderSchema = new mongoose.Schema({
   },
 });
 
-module.exports = Orders = mongoose.model("orders", AdminOrderSchema);
+module.exports = AdminOrder = mongoose.model("adminOrder", AdminOrderSchema);

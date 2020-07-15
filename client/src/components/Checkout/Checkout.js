@@ -5,7 +5,9 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../selectors/cart';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
+import {saveOrder} from '../../actions/order';
+import PropTypes from 'prop-types';
+import profile from '../../reducers/profile';
 
 function loadScript(src) {
 	return new Promise((resolve) => {
@@ -23,7 +25,7 @@ function loadScript(src) {
 
 const __DEV__ = document.domain === 'localhost'
 
-const Cart = ({cartItems, total}) => {
+const Cart = ({cartItems, total, saveOrder}) => {
     let items = JSON.parse(window.localStorage.getItem('items'));
     cartItems = items || [];
 
@@ -44,8 +46,10 @@ const Cart = ({cartItems, total}) => {
             total
         }
         const data = await axios.post('/api/razorpay', body, config);
-		const {amount, id, currency} = data.data;
-        let href = '';
+        const {amount, id, currency} = data.data;
+        let details = {
+            items: cartItems
+        }
 		const options = {
 			key: __DEV__ ? 'rzp_test_mgd2E9MT8P6IRT' : 'PRODUCTION_KEY',
 			currency: currency,
@@ -62,11 +66,13 @@ const Cart = ({cartItems, total}) => {
                 } else {
                     redirect_url = `/payment/success?p_id=${response.razorpay_payment_id}&o_id=${response.razorpay_order_id}&sign=${response.razorpay_signature}`;
                 }
+                details['order_id'] = response.razorpay_order_id;
+                saveOrder(details);
                 window.location.href = redirect_url;
 			},
 			prefill: {
-				email: 'sdfdsjfh2@ndsfdf.com',
-				phone_number: '9899999999'
+				email: '',
+				phone: ''
 			},
             theme: {
                 "color": "#b6eb7a"
@@ -110,9 +116,13 @@ const Cart = ({cartItems, total}) => {
     )
 };
 
-const mapStateToProps = createStructuredSelector({
+CheckoutItem.propTypes = {
+    saveOrder: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => createStructuredSelector({
     cartItems: selectCartItems,
     total: selectCartTotal
 });
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, {saveOrder})(Cart);

@@ -43,9 +43,17 @@ const ProfileSchema = new mongoose.Schema({
                 default: Date.now,
                 required: true
             },
+            order_id: {
+                type: String,
+                required: true
+            },
             status: {
                 type: Boolean,
                 default: false,
+                required: true
+            },
+            mode: {
+                type: String,
                 required: true
             }
         }

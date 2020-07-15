@@ -3,9 +3,12 @@ import qs from 'qs';
 import Styles from './Success.module.css'
 import { Link } from 'react-router-dom';
 
+
 const Success = (props) => {
     var data = qs.parse(props.location.search, { ignoreQueryPrefix: true })
     const {p_id, o_id, sign} = data;
+
+
     return(
         <div className={Styles.window}>
             <div className={Styles.cardcontainer}>

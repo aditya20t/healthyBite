@@ -15,7 +15,7 @@ export const addItem = (item) => dispatch => {
     var index = items.findIndex(x => x.name === item.name);
 
     if(!items[index]) {
-        items.push({'_id': item._id ,'image': item.image, 'name': item.name, 'quantity': item.quantity, 'hbPrice': item.hbPrice});
+        items.push({'_id': item._id ,'image': item.image, 'name': item.name, 'quantity': item.quantity, 'hbPrice': item.hbPrice, 'stock': item.stock});
     } else {
         items[index].quantity += 1;
     }
