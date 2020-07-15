@@ -4,6 +4,7 @@ import { getProfile, deleteAccount } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 import { Link } from 'react-router-dom';
+import Styles from './Profile.module.css';
 
 const Profile = ({ getProfile, auth: {user}, profile: { profile, loading }, deleteAccount }) => {
     useEffect(() => {
@@ -16,9 +17,9 @@ const Profile = ({ getProfile, auth: {user}, profile: { profile, loading }, dele
         </p>
         { profile !== null ? <Fragment>
         <h3>Here is your Profile data</h3>
-        <p><b>Address: </b>{profile.address}</p>
-        <p><b>Pincode: </b>{profile.pincode}</p>
-        <p><b>Gender: </b>{profile.gender}</p>
+        <p className={Styles.para}><strong>Address: </strong>{profile.address}</p>
+        <p className={Styles.para}><strong>Pincode: </strong>{profile.pincode}</p>
+        <p className={Styles.para}><strong>Gender: </strong>{profile.gender}</p>
         <br/>
         <Link to='/edit-profile' className='btn btn-primary my-1'> Edit Profile </Link>
         <div>
