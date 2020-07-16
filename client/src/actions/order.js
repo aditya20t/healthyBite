@@ -11,7 +11,8 @@ export const saveOrder =  (data) => async dispatch => {
         let data1 = {
             items: data.items,
             order_id: data.order_id,
-            mode: 'Online'
+            mode: data.mode,
+            amount: data.amount
         }
         let res = await axios.post('/api/order', data1, config);
         dispatch({

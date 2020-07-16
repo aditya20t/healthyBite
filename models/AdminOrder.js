@@ -17,26 +17,19 @@ const AdminOrderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  orderItems: [
-    {
-      productid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "product",
-      },
-      name: {
-        type: String,
-        required: true,
-      },
-      quantity: {
-        type: Number,
-        default: 0,
-        required: true,
-      },
-      productTotal: {
-        type: Number,
-      },
-    },
-  ],
+  amount:{
+    type: Number,
+    required: true
+  },
+  method: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    required: true
+  },
+  orderItems: [],
   date: {
     type: Date,
     default: Date.now,
