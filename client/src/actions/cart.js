@@ -1,4 +1,4 @@
-import {TOGGLE_CART_HIDDEN, ADD_ITEM, CLEAR_ITEM_FROM_CART, REMOVE_ITEM } from './types';
+import {TOGGLE_CART_HIDDEN, ADD_ITEM, CLEAR_ITEM_FROM_CART, REMOVE_ITEM, CLEAR_CART } from './types';
 
 export const toggleCartHidden = () => dispatch => {
     dispatch({
@@ -60,3 +60,9 @@ export const clearItemFromCart = (item) => dispatch => {
     })
 }
 
+export const clearCart = () => dispatch => {
+    localStorage.removeItem('items');
+    dispatch({
+        type: CLEAR_CART
+    })
+}
