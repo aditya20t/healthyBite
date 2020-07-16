@@ -1,3 +1,12 @@
-.para {
-    text-align: start;
+.container {
+    width: 88%;
+    margin: 25px auto;
+}
+
+#leftContent {
+    border: 2px solid black;
+}
+
+.heading {
+    text-align: center;
 }
