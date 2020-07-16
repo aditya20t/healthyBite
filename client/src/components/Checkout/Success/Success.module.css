@@ -12,9 +12,6 @@ html body #root section, .window{
 
 .description {
     margin: auto;
-}
-
-.description ul, p {
     text-align: center;
     font-size: 1.5rem;
     color: rgb(20, 73, 25);

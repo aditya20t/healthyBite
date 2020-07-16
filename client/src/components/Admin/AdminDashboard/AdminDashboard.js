@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './AdminDashboard.module.css';
+// import styles from './AdminDashboard.module.css';
 import { getProducts } from '../../../actions/products';
 import Items from '../Items/Items';
 import cx from 'classnames';
@@ -36,6 +36,7 @@ const AdminDashboard = ({getProducts, product: {products, loading}}) => {
         </table>
     </div> : <p>No products</p> } 
     <Link className='btn btn-outline-success' to='/admin/createproduct'>Add Product</Link>
+    <Link className='btn btn-outline-primary' to='/admin/manageorders'>Manage Orders</Link>
     </div>
 
 };
