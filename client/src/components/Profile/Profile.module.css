@@ -1,10 +1,10 @@
 .container {
     width: 88%;
-    margin: 25px auto;
+    margin: 30px auto;
 }
 
 #leftContent {
-    border: 2px solid black;
+    border: 1.3px solid black;
 }
 
 .heading {
