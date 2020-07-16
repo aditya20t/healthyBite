@@ -5,6 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { selectCartItems, selectCartTotal } from "../../selectors/cart";
 import CheckoutItem from "../CheckoutItem/CheckoutItem";
 import axios from "axios";
+import {clearCart} from '../../actions/cart';
 import { saveOrder } from "../../actions/order";
 import PropTypes from "prop-types";
 import cryptoRandomString from "crypto-random-string";
@@ -25,7 +26,7 @@ function loadScript(src) {
 
 const __DEV__ = document.domain === "localhost";
 
-const Cart = ({ cartItems, total, saveOrder }) => {
+const Cart = ({ cartItems, total, saveOrder, clearCart }) => {
   let items = JSON.parse(window.localStorage.getItem("items"));
   cartItems = items || [];
 
@@ -38,6 +39,7 @@ const Cart = ({ cartItems, total, saveOrder }) => {
         amount: total
     };
     saveOrder(details);
+    clearCart();
     let redirect_url = `/payment/success?o_id=${o_id}&method=cod`;
     window.location.href = redirect_url;
   }
@@ -88,6 +90,7 @@ const Cart = ({ cartItems, total, saveOrder }) => {
         }
         details["order_id"] = response.razorpay_order_id;
         saveOrder(details);
+        clearCart();
         window.location.href = redirect_url;
       },
       prefill: {
@@ -144,6 +147,7 @@ const Cart = ({ cartItems, total, saveOrder }) => {
 
 CheckoutItem.propTypes = {
   saveOrder: PropTypes.func.isRequired,
+  clearCart: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) =>
@@ -152,4 +156,4 @@ const mapStateToProps = (state) =>
     total: selectCartTotal,
   });
 
-export default connect(mapStateToProps, { saveOrder })(Cart);
+export default connect(mapStateToProps, { saveOrder, clearCart })(Cart);

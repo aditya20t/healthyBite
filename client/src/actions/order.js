@@ -1,4 +1,4 @@
-import {SAVE_ORDER} from '../actions/types';
+import {SAVE_ORDER, CLEAR_CART} from '../actions/types';
 import axios from 'axios';
 
 export const saveOrder =  (data) => async dispatch => {
@@ -15,6 +15,9 @@ export const saveOrder =  (data) => async dispatch => {
             amount: data.amount
         }
         let res = await axios.post('/api/order', data1, config);
+        dispatch({
+            type: CLEAR_CART
+        })
         dispatch({
             type: SAVE_ORDER
         })
