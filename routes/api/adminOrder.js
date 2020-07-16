@@ -3,31 +3,6 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const AdminOrder = require('../../models/AdminOrder');
 
-// @route   POST api/adminorder
-// @desc    Post order details
-// @access  Private 
-
-router.post('/', auth.user, async (req, res) => {
-    try {
-        const {name, address, pincode, items } = req.body;
-        const orderFields = {};
-        orderFields.name = name;
-        orderFields.address = address;
-        orderFields.pincode = pincode;
-        orderFields.orderItems = items;
-
-        const order = new AdminOrder(orderFields);
-        await order.save();
-        res.send("Success");
-
-    } catch (err) {
-        console.error(err.message);
-        res.status(400).send('Server Error');
-    }
-});
-
-
-
 
 // @route   GET api/adminorder
 // @desc    Read all orders

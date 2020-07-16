@@ -20,7 +20,10 @@ router.post('/verification', async (req, res) => {
 		if (digest === req.headers['x-razorpay-signature']) {
 			let response = req.body;
 			let pay = {
-				data: response
+				data: response,
+				o_id: response.payload.payment.entity.order_id,
+				status: response.payload.payment.entity.captured,
+				amount: response.payload.payment.entity.amount/100
 			}
 			let data1 = new Payment(pay);
 			await data1.save();
