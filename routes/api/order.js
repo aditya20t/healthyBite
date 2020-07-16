@@ -47,6 +47,7 @@ router.post('/', auth.user, async (req, res) => {
                     pincode: profile.pincode,
                     amount: payment_details.amount,
                     method: 'online',
+                    o_id: order_id,
                     status: payment_details.status,
                     orderItems: items
                 }
@@ -55,10 +56,6 @@ router.post('/', auth.user, async (req, res) => {
                 res.send('Added to db');
             }
             if(mode === 'offline') {
-                let payment_details = await Payment.findOne({o_id : order_id});
-                if(!payment_details) {
-                    res.status(200).json({msg: 'Try again sometime'});
-                }
                 let adminDetails = {
                     name: user.name,
                     address: profile.address,
@@ -66,7 +63,8 @@ router.post('/', auth.user, async (req, res) => {
                     amount: amount,
                     method: 'Cash on delivery',
                     status: 'Not paid',
-                    orderItems: items
+                    orderItems: items,
+                    o_id: order_id
                 }
                 let data_to_save = new AdminOrder(adminDetails);
                 await data_to_save.save();

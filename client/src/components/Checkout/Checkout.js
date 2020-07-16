@@ -34,13 +34,13 @@ const Cart = ({ cartItems, total, saveOrder, clearCart }) => {
     let o_id = cryptoRandomString({ length: 15, type: "base64" });
     let details = {
         items: cartItems,
-        order_id: o_id,
+        order_id: 'order_'+o_id,
         mode: 'offline',
         amount: total
     };
     saveOrder(details);
     clearCart();
-    let redirect_url = `/payment/success?o_id=${o_id}&method=cod`;
+    let redirect_url = `/payment/success?o_id=order_${o_id}&method=cod`;
     window.location.href = redirect_url;
   }
 

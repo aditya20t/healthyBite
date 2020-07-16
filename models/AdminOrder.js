@@ -29,6 +29,10 @@ const AdminOrderSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  o_id: {
+    type: String,
+    required: true
+  },
   orderItems: [],
   date: {
     type: Date,

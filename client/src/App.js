@@ -15,6 +15,7 @@ import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
 import CreateProduct from './components/Admin/productForm/CreateProduct';
 import EditProduct from './components/Admin/productForm/EditProduct';
 import Success from './components/Checkout/Success/Success';
+import ManageOrders from './components/Admin/ManageOrders/ManageOrders';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -49,6 +50,7 @@ const App = () => {
             <PrivateRoute exact path='/admin/dashboard' component ={ AdminDashboard } />
             <PrivateRoute exact path='/admin/createproduct' component={ CreateProduct } />
             <PrivateRoute exact path='/admin/editProduct' component={ EditProduct } />
+            <PrivateRoute exact path='/admin/manageorders' component={ ManageOrders } />
             <PrivateRoute exact path='/payment/success' component={ Success } />
           </Switch>
         </section>

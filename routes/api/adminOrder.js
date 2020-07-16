@@ -18,7 +18,6 @@ router.get('/', auth.admin, async (req, res) => {
         if(!orders) {
             res.json({msg: 'No orders placed today'});
         }
-        console.log(orders);
         res.json(orders);
     } catch (err) {
         console.error(err.message);
