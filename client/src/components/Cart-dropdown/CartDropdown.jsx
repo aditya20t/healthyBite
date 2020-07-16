@@ -4,7 +4,6 @@ import CustomButton from "../CustomButton/CustomButton";
 import styles from "./CartDropdown.module.css";
 import { withRouter } from "react-router-dom";
 import CartItem from "../cartItem/CartItem";
-import PropTypes from "prop-types";
 import { toggleCartHidden } from "../../actions/cart";
 import { selectCartItems } from "../../selectors/cart";
 

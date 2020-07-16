@@ -6,7 +6,6 @@ const Product = require('../../models/Product');
 const AdminOrder = require('../../models/AdminOrder');
 const Payment = require('../../models/Payment');
 const User = require('../../models/User');
-const { findById } = require('../../models/User');
 
 // @route   POST api/order
 // @desc    Order Successful

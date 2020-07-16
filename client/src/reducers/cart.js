@@ -1,6 +1,5 @@
 import {TOGGLE_CART_HIDDEN, ADD_ITEM, CLEAR_ITEM_FROM_CART, REMOVE_ITEM, CLEAR_CART } from '../actions/types';
 import {addItemsToCart, removeItemFromCart} from '../utils/cart';
-import cartItem from '../components/cartItem/CartItem';
 const initialState = {
     hidden: true,
     cartItems: JSON.parse(localStorage.getItem('items')) || []
