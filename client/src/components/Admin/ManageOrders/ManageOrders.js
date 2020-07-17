@@ -17,7 +17,7 @@ const ManageOrders = () => {
  
     fetchData();
   }, []);
-  return (
+  return data.length > 0 ?
     <div>
     <h3>Today's orders</h3>
     <table className='table table-striped'>
@@ -39,7 +39,7 @@ const ManageOrders = () => {
       </tbody>
     </table>
     </div>
-  );
+  : <h3>No order placed today...</h3>;
 }
 
 export default withRouter(ManageOrders);
