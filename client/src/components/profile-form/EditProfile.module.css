@@ -1,0 +1,18 @@
+.heading {
+    color: rgb(18, 179, 243);
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+#form {
+    width: 50%;
+    margin: auto;
+}
+
+.button {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+}

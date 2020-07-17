@@ -1,0 +1,12 @@
+.container {
+    width: 88%;
+    margin: 30px auto;
+}
+
+#leftContent {
+    border: 1.3px solid black;
+}
+
+.heading {
+    text-align: center;
+}
